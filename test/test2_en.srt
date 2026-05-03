@@ -1,0 +1,31 @@
+1
+00:00:01,790 --> 00:00:03,950
+[Speaker 1] Welcome to the Doubao AI Podcast.
+
+2
+00:00:07,140 --> 00:00:08,820
+[Speaker 2] Hello everyone, welcome to our podcast.
+
+3
+00:00:08,980 --> 00:00:14,260
+[Speaker 2] Today let's talk about the latest progress in AI models and see how far these technologies have come.
+
+4
+00:00:14,420 --> 00:00:16,220
+[Speaker 3] Yeah, this topic is really hot right now.
+
+5
+00:00:16,340 --> 00:00:18,380
+[Speaker 3] Right, let's see what new breakthroughs there are.
+
+6
+00:00:18,760 --> 00:00:22,120
+[Speaker 2] Let's start with the first topic: the development history and current state of AI models.
+
+7
+00:00:22,400 --> 00:00:27,560
+[Speaker 2] First question: What key stages has the AI model gone through along the way?
+
+8
+00:00:28,120 --> 00:00:29,840
+[Speaker 3] Uh, well, the development of AI models...

@@ -1,0 +1,32 @@
+# Node.js
+node_modules/
+package-lock.json
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 测试输出（保留测试数据但排除生成的配音文件）
+test_dubbed*/
+final_*/
+debug_output*/
+clean_test/
+test_direct_clone.wav
+test_compare_*.wav
+test_single_via_cli.wav
+
+# 临时文件
+*.tmp
+*.temp
+.list.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

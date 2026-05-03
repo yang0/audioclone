@@ -1,0 +1,39 @@
+{
+  "name": "audioclone",
+  "version": "1.0.0",
+  "description": "使用 OmniVoice 进行音频克隆配音的 CLI 工具。输入已切分的原音频片段和字幕文件，输出对应配音音频。",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "audioclone": "bin/audioclone.js"
+  },
+  "scripts": {
+    "start": "node bin/audioclone.js",
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "tts",
+    "voice-clone",
+    "omnivoice",
+    "subtitle",
+    "dubbing",
+    "srt",
+    "audio"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "python/",
+    "README.md"
+  ]
+}
