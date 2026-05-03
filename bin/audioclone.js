@@ -32,6 +32,20 @@ program
   .option('--speed <n>', '语速', '1.0')
   .option('--temperature <n>', '温度', '1.0')
   .option('--python-env <path>', 'Python 解释器路径', 'python')
+  .addHelpText('after', `
+示例:
+  # 基本配音
+  $ audioclone dub -s test/test2_en.srt -a test/output -o output_dubbed
+
+  # 使用 CPU 推理
+  $ audioclone dub -s subs.srt -a audio_dir -o out --device cpu
+
+  # 指定 OmniVoice 模型路径
+  $ audioclone dub -s subs.srt -a audio_dir -o out --model-path /path/to/OmniVoice-bf16
+
+  # 调节语音参数（更快/更慢的语速）
+  $ audioclone dub -s subs.srt -a audio_dir -o out --speed 1.2 --steps 64
+`)
   .action(async (options) => {
     try {
       console.log(chalk.bold.green('🎙️  AudioClone - OmniVoice 配音引擎'));
@@ -99,6 +113,11 @@ program
   .description('验证输入文件完整性')
   .requiredOption('-s, --subtitles <path>', '字幕文件路径')
   .requiredOption('-a, --audio-dir <dir>', '参考音频目录')
+  .addHelpText('after', `
+示例:
+  # 验证字幕与音频片段是否匹配
+  $ audioclone verify -s test/test2_en.srt -a test/output
+`)
   .action((options) => {
     console.log(chalk.bold.green('🔍 验证输入文件'));
     console.log('');
