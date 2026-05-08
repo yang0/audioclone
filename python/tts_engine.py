@@ -190,8 +190,17 @@ class OmniVoiceTTSEngine:
         with torch.no_grad():
             audio_list = self.model.generate(**gen_kwargs)
         
-        # 后处理（完全复制 voice_clone_node.py）
+        # 后处理
         audio_np = audio_list[0].squeeze(0).cpu().numpy()
+        
+        # Fade-in/out 消除片段边界爆音
+        FADE_MS = 50  # 50ms 淡入淡出
+        fade_len = min(int(OMNIVOICE_SAMPLE_RATE * FADE_MS / 1000), len(audio_np) // 3)
+        if fade_len > 0:
+            fade_in = np.linspace(0, 1, fade_len, dtype=np.float32)
+            fade_out = np.linspace(1, 0, fade_len, dtype=np.float32)
+            audio_np[:fade_len] *= fade_in
+            audio_np[-fade_len:] *= fade_out
         
         # 保存
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
