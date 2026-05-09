@@ -202,6 +202,13 @@ class OmniVoiceTTSEngine:
             audio_np[:fade_len] *= fade_in
             audio_np[-fade_len:] *= fade_out
         
+        # RMS 归一化：让所有克隆片段保持一致的响度水平
+        TARGET_RMS = 0.1  # 目标RMS (-20dBFS)，适合语音
+        rms = float(np.sqrt(np.mean(np.square(audio_np.astype(np.float64)))))
+        if rms > 1e-6:
+            gain = TARGET_RMS / rms
+            audio_np = (audio_np * gain).clip(-1.0, 1.0)
+        
         # 保存
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
         sf.write(output_path, audio_np, OMNIVOICE_SAMPLE_RATE)
